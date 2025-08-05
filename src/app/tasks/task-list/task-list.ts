@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { TaskForm } from '../task-form/task-form';
 import { Task } from '../../models/task.model';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, TaskForm],
   templateUrl: './task-list.html',
   styleUrl: './task-list.scss'
 })
@@ -39,5 +40,8 @@ export class TaskList {
     }
   ];
 
+  addTask(task: Task) {
+    this.tasks.unshift(task);
+  }
 
 }
